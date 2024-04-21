@@ -115,7 +115,7 @@ func getObjectValue(val string, str string) string {
 	var key = []byte(str)
 	var start int
 	var keyPtr = 0
-	for cursor < length && keyPtr < len(val) {
+	for cursor < length && keyPtr < length {
 		if (val)[cursor] == key[keyPtr] {
 			keyPtr++
 		} else {

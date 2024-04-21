@@ -51,7 +51,5 @@ func GetStreams(urlLink string) (map[string]videoFormat, map[string]audioFormat)
 	adaptiveVal = []byte(jsonArr.getJsonArray("adaptiveFormats"))
 	adaptive := adaptiveObject{&adaptiveVal, encMap, encMethods}
 	video, audio = adaptive.getAdaptiveFormat()
-	var details = jsonObj.getJsonObject("videoDetails")
-	fmt.Println(getObjectValue(details, "title"))
 	return video, audio
 }

@@ -121,7 +121,7 @@ func (j adaptiveObject) parseJsonObject(str string, dec *decrypter, videoMap map
 		if ok {
 			video.SignatureCipher = dec.decodeUrl(val[1 : len(mp["signatureCipher"])-1])
 		} else {
-			video.SignatureCipher = mp["url"][1 : len(mp["url"])-1]
+			video.SignatureCipher = dec.decodeUrl(mp["url"][1 : len(mp["url"])-1])
 		}
 		video.MimeType = mp["mimeType"][1 : len(mp["mimeType"])-1]
 		video.Quality = mp["quality"][1 : len(mp["quality"])-1]
@@ -149,6 +149,8 @@ func (j adaptiveObject) parseJsonObject(str string, dec *decrypter, videoMap map
 	}
 	mp = nil
 }
+
+// TODO parse video title from json
 func (j jsonObject) getVideoTitle() string {
 	return ""
 }
